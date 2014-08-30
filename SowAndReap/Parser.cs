@@ -24,7 +24,7 @@ namespace SowAndReap
 			foreach (XmlNode sourceNode in sourceNodes)
 			{
 				var attributes = sourceNode.Attributes;
-                string fileName = attributes["name"].Value;
+				string fileName = attributes["name"].Value;
 				int id = int.Parse(attributes["id"].Value);
 				string channel = attributes["captured-for"].Value;
 				var ardourSource = new Source(fileName, channel);
@@ -65,7 +65,7 @@ namespace SowAndReap
 				using (var writer = new StreamWriter(stream))
 				{
 					WriteReaperNode(rootNode, writer);
-	            }
+				}
 			}
 		}
 
@@ -93,13 +93,13 @@ namespace SowAndReap
 			addAttribute("RECPASS 1500");
 			var sourceWave = new ReaperNode("SOURCE WAVE");
 			var sourceAttribute = new ReaperAttribute(string.Format("FILE \"{0}\"", source.FileName));
-            sourceWave.Attributes.Add(sourceAttribute);
+			sourceWave.Attributes.Add(sourceAttribute);
 			var sourceWaveAttribute = new ReaperAttribute(sourceWave);
 			item.Attributes.Add(sourceWaveAttribute);
 			var itemAttribute = new ReaperAttribute(item);
 			track.Attributes.Add(itemAttribute);
 			_ItemId++;
-        }
+		}
 
 		bool NameAttributeMatches(ReaperAttribute attribute, string channel)
 		{
