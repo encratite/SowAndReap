@@ -30,7 +30,7 @@ namespace SowAndReap
 				var ardourSource = new Source(fileName, channel);
 				_Sources[id] = ardourSource;
 			}
-			var regionNodes = sessionNode.SelectNodes("//Regions/Region");
+			var regionNodes = sessionNode.SelectNodes("//Playlist/Region");
 			foreach (XmlNode regionNode in regionNodes)
 			{
 				var attributes = regionNode.Attributes;
